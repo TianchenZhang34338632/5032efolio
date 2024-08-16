@@ -1,11 +1,10 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import TheWelcome from './components/TheWelcome.vue'
 import Form from './components/Form.vue'
 </script>
 
 <template>
-
     <Form />
 </template>
 
@@ -21,8 +20,7 @@ header {
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
-    place-items: center;
+    display: block;
     padding-right: calc(var(--section-gap) / 2);
   }
 
@@ -31,9 +29,8 @@ header {
   }
 
   header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    display: block;
+    margin-top: 1rem;
   }
 }
 </style>
