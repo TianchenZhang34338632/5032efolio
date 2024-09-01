@@ -22,7 +22,7 @@ const submitForm = () => {
   if (!errors.value.username && !errors.value.password && formData.value.username === rightUserName && formData.value.password === rightPassword) {
     // submittedCards.value.push({ ...formData.value })
     // clearForm()
-    alert("login success")
+    alert("login successful")
     isAuthenticated.value = true
     router.push({name:'About'})
   }

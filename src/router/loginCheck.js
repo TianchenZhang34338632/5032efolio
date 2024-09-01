@@ -5,11 +5,11 @@ const isAuthenticated = ref(false)
 
 export function userAuthentication() {
     const login = () =>{
-        isAuthenticated = true
+        isAuthenticated.value = true
     }
 
     const logout = () =>{
-        isAuthenticated = false
+        isAuthenticated.value = false
     }
 
     return {isAuthenticated,login,logout}

@@ -1,3 +1,16 @@
+<script setup>
+import {userAuthentication} from '../router/loginCheck'
+import router from '../router/index'
+
+const {isAuthenticated} = userAuthentication()
+
+const logout = () => {
+    isAuthenticated.value = false
+    alert("logout successful")
+    router.push({name:'Home'})
+}
+</script>
+
 <template>
   <!-- Using Bootstrap's Header template (starter code) -->
   <!-- https://getbootstrap.com/docs/5.0/examples/headers/ -->
@@ -15,10 +28,15 @@
         <li class="nav-item">
           <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
         </li>
+        <li class="nav-item">
+          <button  class="nav-link" active-class="active" @click="logout">Logout</button>
+        </li>
       </ul>
     </header>
   </div>
 </template>
+
+
 
 <style scoped>
 .b-example-divider {
