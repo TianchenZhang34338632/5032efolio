@@ -1,11 +1,11 @@
 <script setup>
-import {userAuthentication} from '../router/loginCheck'
+// import {userAuthentication} from '../router/loginCheck'
 import router from '../router/index'
 
-const {isAuthenticated} = userAuthentication()
+// const {isAuthenticated} = userAuthentication()
 
 const logout = () => {
-    isAuthenticated.value = false
+    // isAuthenticated.value = false
     alert("logout successful")
     router.push({name:'Home'})
 }
