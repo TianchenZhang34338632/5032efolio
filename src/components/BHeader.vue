@@ -1,5 +1,6 @@
 <script setup>
 // import {userAuthentication} from '../router/loginCheck'
+import { getAuth,signOut } from 'firebase/auth';
 import router from '../router/index'
 
 // const {isAuthenticated} = userAuthentication()
@@ -8,6 +9,20 @@ const logout = () => {
     // isAuthenticated.value = false
     alert("logout successful")
     router.push({name:'Home'})
+}
+
+
+const firelogout = () => {
+    // isAuthenticated.value = false
+    const auth = getAuth();
+    signOut(auth).then(() =>{
+      alert("logout successful")
+      console.log(auth)
+      router.push({name:'Home'})
+    }).catch((error) =>{
+      console.log("logout error",error)
+    });
+    
 }
 </script>
 
@@ -30,6 +45,15 @@ const logout = () => {
         </li>
         <li class="nav-item">
           <button  class="nav-link" active-class="active" @click="logout">Logout</button>
+        </li>
+        <li class="nav-item">
+          <router-link to="/Firelogin" class="nav-link" active-class="active">Firebase Login</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/Fireregister" class="nav-link" active-class="active">Firebase Register</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/Firelogout" class="nav-link" @click="firelogout">Firebase Logout</router-link>
         </li>
       </ul>
     </header>
