@@ -55,6 +55,9 @@ const firelogout = () => {
         <li class="nav-item">
           <router-link to="/Firelogout" class="nav-link" @click="firelogout">Firebase Logout</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/addbook" class="nav-link" active-class="active">Add Book</router-link>
+        </li>
       </ul>
     </header>
   </div>
