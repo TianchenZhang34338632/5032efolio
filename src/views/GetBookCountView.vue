@@ -7,28 +7,22 @@
     </div>
 </template>
 
-<script>
-import axios from 'axios'
+<script setup>
+import axios from 'axios';
+import {ref} from 'vue';
+const count = ref('');
+const error = ref('');
 
-export default {
-    data() {
-        return {
-            count: null,
-            error: null,
-        };
-    }, 
-    methods: {
-        async getBookCount() {
-            try {
-                const response = await axios.get('http://127.0.0.1:5001/week7-tianchen-zhang/us-central1/countBooks');
-                this.count = response.data.count;
-                this.error = null;
-            } catch (error) {
-                console.error('Error feching book count:',error);
-                this.error = error;
-                this.count = null;
-            }
+const getBookCount = async () => {
+    try {
+            const response = await axios.get('https://countbooks-ms47cdl5eq-uc.a.run.app/');
+            console.log("response",response.data)
+            count.value = response.data.count;
+            error.value = null;
+        } catch (error) {
+            console.error('Error feching book count:',err);
+            error.value = error;
+            count.value = null;
         }
-    }
 }
 </script>

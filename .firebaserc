@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "week7-tianchen-zhang"
-  }
+    "default": "w9w10-74650",
+    "W9W10": "w9w10-74650"
+  },
+  "targets": {},
+  "etags": {}
 }

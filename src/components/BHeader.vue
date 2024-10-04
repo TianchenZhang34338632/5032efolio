@@ -61,6 +61,12 @@ const firelogout = () => {
         <li class="nav-item">
           <router-link to="/GetBookCount" class="nav-link" active-class="active">Get Book Count</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/CountBookAPI" class="nav-link" active-class="active">CountBookAPI</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/WeatherCheck" class="nav-link" active-class="active">Weather Check</router-link>
+        </li>
       </ul>
     </header>
   </div>
