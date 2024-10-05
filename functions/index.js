@@ -29,6 +29,43 @@ exports.countBooks = onRequest((req, res) => {
     });
   });
 
+  exports.addBooks = onRequest((req, res) => {
+    cors(req, res, async () => {
+      try{
+        const {isbn,name} = req.body
+
+        await admin.firestore().collection("books").add({isbn:isbn.toUpperCase(),name:name.toUpperCase()});
+        // const snapshot = await booksCollection.get();
+        // const count = snapshot.size;
+  
+        res.status(200).send("successful!")
+      } catch (error) {
+        console.error("Error add book:",error.message);
+        res.status(500).send("Error add book")
+      }
+    });
+  });
+
+  exports.getAllBooks = onRequest((req, res) => {
+    cors(req, res, async () => {
+      try{
+
+        const booksCollection = admin.firestore().collection("books");
+        const snapshot = await booksCollection.get();
+        const books = snapshot.docs.map(doc => ({
+            id: doc.id,  // 包含文档的自动生成ID
+            isbn: doc.data().isbn,
+            name: doc.data().name
+          }));
+  
+        res.status(200).send({books})
+      } catch (error) {
+        console.error("Error get all book:",error.message);
+        res.status(500).send("Error get all book")
+      }
+    });
+  });
+
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 

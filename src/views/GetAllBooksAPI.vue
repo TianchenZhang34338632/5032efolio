@@ -1,17 +1,17 @@
 <template>
-    <pre>{{count}}</pre>
+    <pre>{{books}}</pre>
 </template>
 
 <script setup>
 import axios from 'axios';
 import {ref} from 'vue';
-const count = ref('');
+const books = ref('');
 const error = ref('');
 
-const getBookCount = async () => {
+const getAllBook = async () => {
     try {
-            const response = await axios.get('https://countbooks-ms47cdl5eq-uc.a.run.app/');
-            count.value = response.data;
+            const response = await axios.get('https://getallbooks-ms47cdl5eq-uc.a.run.app/');
+            books.value = response.data;
             error = null;
         } catch (error) {
             console.error('Error feching book count:',err);
@@ -19,5 +19,5 @@ const getBookCount = async () => {
             count.value = null;
         }
     }
-getBookCount()
+getAllBook()
 </script>

@@ -49,8 +49,16 @@
   const iconUrl = ref('');
   const temperature = ref('');
 
-  const searchByCity = () => {
-
+  const searchByCity = async () => {
+    try {
+        const resLocation = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city.value}&appid=${apikey}`);
+        const latitude = resLocation.data[0].lat
+        const longitude = resLocation.data[0].lon
+        const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
+        await fetchWeatherData(url);
+        } catch (error) {
+          console.error("Error Location:", error);
+        }
   }
 
     const fetchCurrentLocationWeather = async () => {

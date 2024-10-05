@@ -23,6 +23,7 @@ import { ref } from 'vue';
 import db from '../firebase/init.js';
 import { collection, addDoc } from 'firebase/firestore';
 import BookList from '../components/BookList.vue';
+import axios from 'axios';
 
 export default {
   setup() {
@@ -31,16 +32,17 @@ export default {
 
     const addBook = async () => {
       try {
+        
         const isbnNumber = Number(isbn.value);
         if (isNaN(isbnNumber)) {
           alert('ISBN must be a valid number');
           return;
         }
-
-        await addDoc(collection(db, 'books'), {
-          isbn: isbnNumber,
-          name: name.value
-        });
+        const response = await axios.post('https://addbooks-ms47cdl5eq-uc.a.run.app/',{isbn:isbn.value,name:name.value});
+        // await addDoc(collection(db, 'books'), {
+        //   isbn: isbnNumber,
+        //   name: name.value
+        // });
 
         isbn.value = '';
         name.value = '';

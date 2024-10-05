@@ -10,6 +10,7 @@ import GetBookCountView from '../views/GetBookCountView.vue'
 import CountBookAPI from '../views/CountBookAPI.vue'
 import {userAuthentication} from '../router/loginCheck'
 import WeatherView from '../views/WeatherView.vue'
+import GetAllBooksAPI from '../views/GetAllBooksAPI.vue'
 
 const routes = [
   {
@@ -63,6 +64,12 @@ const routes = [
     path: '/WeatherCheck',
     name: 'WeatherCheck',
     component: WeatherView
+  }
+  ,
+  {
+    path: '/GetAllBooksAPI',
+    name: 'GetAllBooksAPI',
+    component: GetAllBooksAPI
   }
 ]
 
