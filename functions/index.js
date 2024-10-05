@@ -53,7 +53,7 @@ exports.countBooks = onRequest((req, res) => {
         const booksCollection = admin.firestore().collection("books");
         const snapshot = await booksCollection.get();
         const books = snapshot.docs.map(doc => ({
-            id: doc.id,  // 包含文档的自动生成ID
+            id: doc.id,
             isbn: doc.data().isbn,
             name: doc.data().name
           }));
