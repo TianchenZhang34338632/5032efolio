@@ -54,7 +54,7 @@
         const resLocation = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city.value}&appid=${apikey}`);
         const latitude = resLocation.data[0].lat
         const longitude = resLocation.data[0].lon
-        const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
         await fetchWeatherData(url);
         } catch (error) {
           console.error("Error Location:", error);
@@ -68,7 +68,7 @@
           navigator.geolocation.getCurrentPosition(async (position) => {
             const { latitude, longitude } = position.coords;
             //API link to obtain the current weather based on the current location browser identified 
-            const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
             //await means wait for the fetchWeatherData method to complete before proceeding
             await fetchWeatherData(url);
           });
@@ -80,7 +80,7 @@
           //Returned data from API is stored as JSON file in weatherData
           weatherData.value = response.data;
           iconUrl.value = response.data
-          ? `http://api.openweathermap.org/img/w/${response.data.weather[0].icon}.png`
+          ? `https://api.openweathermap.org/img/w/${response.data.weather[0].icon}.png`
           : null;
           temperature.value = response.data
           ? Math.floor(response.data.main.temp - 273)
