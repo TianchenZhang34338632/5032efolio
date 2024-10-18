@@ -1,8 +1,15 @@
-// vue.config.js
-module.exports = {
-  // publicPath
-  publicPath: process.env.NODE_ENV === 'production' ? '/5032efolio/' : '/W11W12',
-  
-  // outputDir
-  outputDir: 'dist'
-}
+export default defineConfig({
+  base: '',
+  build: {
+    outDir: 'dist'
+  },
+  plugins: [
+    vue(),
+    vueDevTools(),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  }
+})
