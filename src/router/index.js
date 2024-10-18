@@ -11,7 +11,6 @@ import CountBookAPI from '../views/CountBookAPI.vue'
 import {userAuthentication} from '../router/loginCheck'
 import WeatherView from '../views/WeatherView.vue'
 import GetAllBooksAPI from '../views/GetAllBooksAPI.vue'
-import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
