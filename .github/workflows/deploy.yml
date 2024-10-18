@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - W11W12
 
 jobs:
   build-and-deploy:
@@ -27,7 +27,7 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
-        branch: W11W12
+        branch: gh-pages
         folder: dist
 
 permissions:
