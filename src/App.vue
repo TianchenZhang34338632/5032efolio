@@ -7,7 +7,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const showHeader = computed(() => {
   console.log("router name",router.currentRoute)
-  return router.currentRoute._value.name !== 'CountBookAPI'
+  return router.currentRoute.value.name !== 'CountBookAPI'
 })
 </script>
 
