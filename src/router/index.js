@@ -75,66 +75,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: AboutView
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: LoginView
-    },
-    {
-      path: '/Firelogin',
-      name: 'Firelogin',
-      component: FirebaseSigninView
-    },
-    {
-      path: '/Fireregister',
-      name: 'Fireregister',
-      component: FirebaseRegisterView
-    },
-    {
-      path: '/Addbook',
-      name: 'Addbook',
-      component: AddBookView
-    }
-    ,
-    {
-      path: '/Editbook',
-      name: 'Editbook',
-      component: EditBookView
-    }
-    ,
-    {
-      path: '/GetBookCount',
-      name: 'GetBookCount',
-      component: GetBookCountView
-    },
-    {
-      path: '/CountBookAPI',
-      name: 'CountBookAPI',
-      component: CountBookAPI
-    },
-    {
-      path: '/WeatherCheck',
-      name: 'WeatherCheck',
-      component: WeatherView
-    }
-    ,
-    {
-      path: '/GetAllBooksAPI',
-      name: 'GetAllBooksAPI',
-      component: GetAllBooksAPI
-    }
-  ]
+  routes: routes
 })
 
 const {isAuthenticated} = userAuthentication()
